@@ -1,5 +1,5 @@
 
-Jogo: Pedra, papel e tesoura
+Jogo: Pedra, papel e tesoura em JAVASCRIPT 
 
 
 // Função para gerar um número aleatório entre 0 e 2
@@ -51,3 +51,43 @@ function playGame() {
 // Iniciar o jogo
 
 playGame();
+
+
+
+////////////////////////////////////////////////////////////////////////////////////
+
+
+Jogo: Pedra, papel e tesoura em PHP
+
+<?php
+// Função para determinar o vencedor
+function determinarVencedor($jogador, $computador) {
+    if ($jogador === $computador) {
+        return "Empate!";
+    }
+
+    if (($jogador === "pedra" && $computador === "tesoura") ||
+        ($jogador === "papel" && $computador === "pedra") ||
+        ($jogador === "tesoura" && $computador === "papel")) {
+        return "Você venceu!";
+    } else {
+        return "Você perdeu!";
+    }
+}
+
+// Jogada do jogador
+$jogador = strtolower(readline("Escolha pedra, papel ou tesoura: "));
+
+// Jogada do computador
+$opcoes = ["pedra", "papel", "tesoura"];
+$computador = $opcoes[array_rand($opcoes)];
+
+echo "Você escolheu: $jogador\n";
+echo "O computador escolheu: $computador\n";
+
+// Determinar o vencedor
+$resultado = determinarVencedor($jogador, $computador);
+echo $resultado;
+?>
+
+
